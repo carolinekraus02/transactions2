@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 interface InMemoryDB {
-    int get(String key);
+    Integer get(String key);
     void put(String key, int val);
     void begin_transaction();
     void commit();
@@ -40,7 +40,8 @@ class TransactionMachine implements InMemoryDB {
     }
 
     @Override
-    public int get(String key) {
+    public Integer get(String key) {
+        //return db.containsKey(key) ? db.get(key) : null;
         return db.getOrDefault(key, null);
     }
 
